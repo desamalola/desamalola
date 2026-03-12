@@ -1,3 +1,55 @@
+// ── Dot Navigation (Mobile Only) ─────────────────────────
+const dotNav     = document.getElementById('dot-nav');
+const dotItems   = document.querySelectorAll('.dot-nav-item');
+const sections   = ['beranda', 'sejarah', 'struktur', 'potensi'];
+
+// Tampilkan hanya di mobile
+function toggleDotNav() {
+    if (window.innerWidth < 1024) {
+        dotNav.classList.remove('hidden');
+        dotNav.classList.add('flex');
+    } else {
+        dotNav.classList.add('hidden');
+        dotNav.classList.remove('flex');
+    }
+}
+toggleDotNav();
+window.addEventListener('resize', toggleDotNav);
+
+// Klik dot → scroll ke section
+dotItems.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Highlight dot aktif saat scroll
+const sectionEls = sections.map(id => document.getElementById(id));
+
+function updateActiveDot() {
+    const scrollY      = window.scrollY + window.innerHeight / 2;
+    let activeIndex    = 0;
+
+    sectionEls.forEach((el, i) => {
+        if (el && el.offsetTop <= scrollY) activeIndex = i;
+    });
+
+    dotItems.forEach((btn, i) => {
+        const dot = btn.querySelector('span:last-child');
+        if (i === activeIndex) {
+            dot.classList.add('bg-primary', 'scale-125');
+            dot.classList.remove('bg-white');
+        } else {
+            dot.classList.remove('bg-primary', 'scale-125');
+            dot.classList.add('bg-white');
+        }
+    });
+}
+
+updateActiveDot();
+window.addEventListener('scroll', updateActiveDot, { passive: true });
+
  function initCarousel(trackId, dotsId, prevId, nextId, color = 'blue') {
         const track = document.getElementById(trackId);
         const dotsEl = document.getElementById(dotsId);

@@ -68,10 +68,26 @@
                             href="#potensi">Potensi</a>
                     </nav>
                 </div>
-                <div class="lg:hidden">
-                    <span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer">menu</span>
-                </div>
+                <!-- <div class="lg:hidden">
+                    <button id="hamburger-btn" class="flex items-center justify-center">
+                        <span id="hamburger-icon" class="material-symbols-outlined text-white cursor-pointer">menu</span>
+                    </button>
+                </div> -->
             </header>
+            <!-- <div id="mobile-menu" class="fixed inset-0 z-40 hidden">
+
+                <div id="menu-backdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+                <div class="absolute top-0 right-0 h-full w-64 bg-primary shadow-2xl flex flex-col pt-20 px-6 gap-2">
+                    <button id="menu-close" class="absolute top-4 right-4 text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                    <a href="#beranda"  class="mobile-nav-link text-white/80 hover:text-white hover:bg-white/10 font-medium px-4 py-3 rounded-xl transition-colors">Beranda</a>
+                    <a href="#sejarah"  class="mobile-nav-link text-white/80 hover:text-white hover:bg-white/10 font-medium px-4 py-3 rounded-xl transition-colors">Sejarah</a>
+                    <a href="#struktur" class="mobile-nav-link text-white/80 hover:text-white hover:bg-white/10 font-medium px-4 py-3 rounded-xl transition-colors">Struktur</a>
+                    <a href="#potensi"  class="mobile-nav-link text-white/80 hover:text-white hover:bg-white/10 font-medium px-4 py-3 rounded-xl transition-colors">Potensi</a>
+                </div>
+            </div> -->
             <main class="flex flex-col flex-1">
                 <!-- Hero Section -->
                 <section class="relative" id="beranda">
@@ -526,10 +542,10 @@
                             <h3 class="font-bold text-lg mb-4">Hubungi Kami</h3>
                             <ul class="space-y-3 text-white/70 text-sm">
                                 <li class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-sm">mail</span> info@desasejahtera.go.id
+                                    <span class="material-symbols-outlined text-sm">mail</span> info@email.go.id
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <span class="material-symbols-outlined text-sm">call</span> +62 812 3456 7890
+                                    <span class="material-symbols-outlined text-sm">call</span> +62 123 3456 7890
                                 </li>
                             </ul>
                         </div>
@@ -542,7 +558,25 @@
             </main>
         </div>
     </div>
-
+    <!-- Dot Navigation (Mobile Only) -->
+    <nav id="dot-nav" class="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-3 hidden">
+        <button data-target="beranda"  class="dot-nav-item group flex items-center justify-end gap-2">
+            <span class="dot-label hidden group-hover:block text-[10px] font-semibold text-white bg-slate-800/80 rounded-full px-2 py-0.5 whitespace-nowrap">Beranda</span>
+            <span class="block w-3 h-3 rounded-full border-2 border-primary bg-white transition-all duration-200"></span>
+        </button>
+        <button data-target="sejarah"  class="dot-nav-item group flex items-center justify-end gap-2">
+            <span class="dot-label hidden group-hover:block text-[10px] font-semibold text-white bg-slate-800/80 rounded-full px-2 py-0.5 whitespace-nowrap">Sejarah</span>
+            <span class="block w-3 h-3 rounded-full border-2 border-primary bg-white transition-all duration-200"></span>
+        </button>
+        <button data-target="struktur" class="dot-nav-item group flex items-center justify-end gap-2">
+            <span class="dot-label hidden group-hover:block text-[10px] font-semibold text-white bg-slate-800/80 rounded-full px-2 py-0.5 whitespace-nowrap">Struktur</span>
+            <span class="block w-3 h-3 rounded-full border-2 border-primary bg-white transition-all duration-200"></span>
+        </button>
+        <button data-target="potensi"  class="dot-nav-item group flex items-center justify-end gap-2">
+            <span class="dot-label hidden group-hover:block text-[10px] font-semibold text-white bg-slate-800/80 rounded-full px-2 py-0.5 whitespace-nowrap">Potensi</span>
+            <span class="block w-3 h-3 rounded-full border-2 border-primary bg-white transition-all duration-200"></span>
+        </button>
+    </nav>
       <!-- Modal Sejarah -->
     <div id="modal-sejarah" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
         onclick="if(event.target===this) this.classList.add('hidden')">
