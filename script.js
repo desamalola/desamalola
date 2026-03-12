@@ -118,29 +118,30 @@ initCarousel('potensi-track', 'potensi-dots', 'potensi-prev', 'potensi-next', '#
 const allGalleryImgs = () => [...document.querySelectorAll('#galeri img')];
 let lightboxIndex = 0;
 
-function openLightbox(card) {
-    const img    = card.querySelector('img');
-    const imgs   = allGalleryImgs();
+window.openLightbox = function(card) {
+    const img     = card.querySelector('img');
+    const imgs    = allGalleryImgs();
     lightboxIndex = imgs.indexOf(img);
     updateLightbox();
     document.getElementById('lightbox').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }
 
-function closeLightbox() {
+window.closeLightbox = function() {
     document.getElementById('lightbox').classList.add('hidden');
     document.body.style.overflow = '';
 }
 
 function updateLightbox() {
     const imgs = allGalleryImgs();
-    document.getElementById('lightbox-img').src       = imgs[lightboxIndex].src;
-    document.getElementById('lightbox-img').alt       = imgs[lightboxIndex].alt;
+    document.getElementById('lightbox-img').src         = imgs[lightboxIndex].src;
+    document.getElementById('lightbox-img').alt         = imgs[lightboxIndex].alt;
     document.getElementById('lightbox-counter').textContent = `${lightboxIndex + 1} / ${imgs.length}`;
 }
 
-function lightboxPrev() { const imgs = allGalleryImgs(); lightboxIndex = (lightboxIndex - 1 + imgs.length) % imgs.length; updateLightbox(); }
-function lightboxNext() { const imgs = allGalleryImgs(); lightboxIndex = (lightboxIndex + 1) % imgs.length;               updateLightbox(); }
+window.lightboxPrev = function() { const imgs = allGalleryImgs(); lightboxIndex = (lightboxIndex - 1 + imgs.length) % imgs.length; updateLightbox(); }
+window.lightboxNext = function() { const imgs = allGalleryImgs(); lightboxIndex = (lightboxIndex + 1) % imgs.length;               updateLightbox(); }
+
 
 // Navigasi keyboard lightbox
 document.addEventListener('keydown', e => {
