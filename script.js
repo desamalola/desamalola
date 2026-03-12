@@ -59,3 +59,4 @@
     initCarousel('kasie-track', 'kasie-dots', 'kasie-prev', 'kasie-next', 'blue');
     initCarousel('kaur-track', 'kaur-dots', 'kaur-prev', 'kaur-next', 'blue');
     initCarousel('jaga-track', 'jaga-dots', 'jaga-prev', 'jaga-next', 'slate');
+    initCarousel('potensi-track', 'potensi-dots', 'potensi-prev', 'potensi-next', '#2563eb', '#bfdbfe');
