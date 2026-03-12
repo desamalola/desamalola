@@ -54,8 +54,8 @@
         track.addEventListener('mouseleave', () => { isDragging = false; });
         
         update();
-        }
+    }
         
-        initCarousel('kasie-track', 'kasie-dots', 'kasie-prev', 'kasie-next', 'blue');
-        initCarousel('kaur-track', 'kaur-dots', 'kaur-prev', 'kaur-next', 'blue');
-        initCarousel('jaga-track', 'jaga-dots', 'jaga-prev', 'jaga-next', 'slate');
+    initCarousel('kasie-track', 'kasie-dots', 'kasie-prev', 'kasie-next', 'blue');
+    initCarousel('kaur-track', 'kaur-dots', 'kaur-prev', 'kaur-next', 'blue');
+    initCarousel('jaga-track', 'jaga-dots', 'jaga-prev', 'jaga-next', 'slate');
